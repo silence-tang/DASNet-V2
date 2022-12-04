@@ -7,7 +7,7 @@ An improved version of DASNet, achieving 0.96+ in F1_score.
 - 说明：本人复现该论文时发现开源代码有部分写错的地方，均已修正
 
 ## 改进思路
--  整个模型给人的感觉就是头重脚轻：一开始用很重的模块只是为了算一个融合空间和通道注意力的embedding map，可以理解是为了获得更为有效的representation，但是后续模块就比较弱，直接计算了ground truth和embedding map之间的loss，这可能太粗糙了。而且**源码中是用32x32的尺度算loss，这个过程中ground truth的精度其实已经被丢失了，因此模型学出来的知识可能只够用于检测低分辨率图像**。
+-  整个模型给人头重脚轻的感觉：一开始用很重的模块只是为了算一个融合空间和通道注意力的embedding map，可以理解是为了获得更为有效的representation，但是后续模块就比较弱，直接计算了ground truth和embedding map之间的loss，这可能太粗糙了。而且**源码中是用32x32的尺度算loss，这个过程中ground truth的精度其实已经被丢失了，因此模型学出来的知识可能只够用于检测低分辨率图像**。
 -  改进思路：借鉴语义分割中的encoder-decoder结构，一方面可以把embedding map逐步由32x32上采样到256x256，然后计算一个loss，另一方面可以引入多尺度loss，在decoder不同layer的输出feature map上与ground truth计算loss，最后把多层loss联合起来优化网络，使得模型可以学到多尺度的信息。此外，由于变化检测任务其实本质上就是像素级别的分类的任务，本质上和语义分割没有区别（语义分割是单点像素的多分类任务，而变化检测是特殊的语义分割，即单点像素处的二分类任务），因此语义分割那块的所有模型都可以拿来借鉴。
 -  注：当前版本暂未联合Decoder的multi-layer losses进行训练，仅利用了Decoder最后一层输出的256x256进行训练。
 
