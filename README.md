@@ -22,6 +22,8 @@ An improved version of DASNet, achieving 0.96+ in F1_score.
 ## 实验
 - 硬件：单卡 NVIDIA RTX 2080Ti
 - Requirements: 参考原论文的Github项目
+- 数据集：Change Detection Dataset
+- 预训练backbone：resnet50-19c8e357.pth
 - Train from scratch：进入DASNet-V2目录，直接在命令行运行`python train.py`（可根据需要自行添加其他命令行参数）
 
 ### DASNet
