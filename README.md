@@ -34,6 +34,8 @@ An improved version of DASNet, achieving 0.96+ in F1_score.
 - **best_max_f = 0.9299360653186844**
 - best_epoch:  49
 - best_batch_idx:  500
+
+
 ![VnwCy.png](https://i.328888.xyz/img/2022/12/04/VnwCy.png)
 
 ### DASNet-V2
@@ -44,6 +46,8 @@ An improved version of DASNet, achieving 0.96+ in F1_score.
 - **best_max_f = 0.9566290556389714**
 - best_epoch:  76
 - best_batch_idx:  2499
+
+
 ![Vn2X5.png](https://i.328888.xyz/img/2022/12/04/Vn2X5.png)
 
 ### DASNet-V2 (replace l_2 loss with cossim loss)
@@ -90,6 +94,7 @@ An improved version of DASNet, achieving 0.96+ in F1_score.
    - best_epoch:  75，best_batch_idx:  2499
 
 ![8mb7o.png](https://i.328888.xyz/2023/01/31/8mb7o.png)
+
 - 无SAM、有CAM，其他不变：可以不做实验，因为发现即使SAM、CAM都去掉，性能也只是下降了0.2左右
 - 有SAM、无CAM，其他不变：可以不做实验，因为发现即使SAM、CAM都去掉，性能也只是下降了0.2左右
 
