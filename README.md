@@ -76,8 +76,9 @@ An improved version of DASNet, achieving 0.96+ in F1_score.
   - 训练 80 epoch，0-20 epoch lr = 1e-4，21-40 epoch lr = 5e-5，41-60 epoch lr = 1e-5，61-70 epoch lr = 5e-6，71-80 epoch lr = 1e-6
   - **best_max_f = 0.9546**
   - best_epoch:  68，best_batch_idx: 2000
-  - 
+
 ![8miyy.png](https://i.328888.xyz/2023/01/31/8miyy.png)
+
 通过结果，我们可以看出，即使将总损失替换为$L_{sasc}$，也不会对模型性能造成太大的损害，F1_score仅仅下降了0.2。
 
 - **EXP3——消融实验**
