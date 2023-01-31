@@ -57,12 +57,12 @@ An improved version of DASNet, achieving 0.96+ in F1_score.
 
 - **空白对照**
   - **SiamseNet+Decoder，Distance Metric = $L_2$**
-  - 训练 80 epoch，0~20 epoch lr = 1e-4，21~40 epoch lr = 5e-5，41~60 epoch lr = 1e-5，61~70 epoch lr = 5e-6，71~80 epoch lr = 1e-6
+  - 训练 80 epoch，0-20 epoch lr = 1e-4，21-40 epoch lr = 5e-5，41-60 epoch lr = 1e-5，61-70 epoch lr = 5e-6，71-80 epoch lr = 1e-6
   - **best_max_f = 0.9566**
   - best_epoch:  76，best_batch_idx:  2499
 - **EXP1——修改损失函数中距离的度量标准为余弦相似度，同时修改双边阈值为$m_1=0.1, m_2=0.8$，看看效果升还是降。同时可以观察用余弦相似度计算的热力图**
   - **SiamseNet+Decoder，Distance Metric = Cosine Sim**
-  - 训练 70 epoch，0~20 epoch lr = 1e-4，21~40 epoch lr = 5e-5，41~60 epoch lr = 1e-5，61~70 epoch lr = 5e-6
+  - 训练 70 epoch，0-20 epoch lr = 1e-4，21-40 epoch lr = 5e-5，41-60 epoch lr = 1e-5，61-70 epoch lr = 5e-6
   - **best_max_f = 0.9601**
   - best_epoch:  63，best_batch_idx: 2000
 
@@ -73,7 +73,7 @@ An improved version of DASNet, achieving 0.96+ in F1_score.
 
 - **EXP2——损失函数有三项，$Loss = λ_1L_{sa} + λ_2L_{ca} + λ_3L_{saca}$，在实验中发现这三项loss总是非常接近的，应该只用最后的$L_{saca}$也行？**
   - **SiamseNet+Decoder，Distance Metric = $L_2$**，$Loss = L_{saca}$
-  - 训练 80 epoch，0~20 epoch lr = 1e-4，21~40 epoch lr = 5e-5，41~60 epoch lr = 1e-5，61~70 epoch lr = 5e-6，71~80 epoch lr = 1e-6
+  - 训练 80 epoch，0-20 epoch lr = 1e-4，21-40 epoch lr = 5e-5，41-60 epoch lr = 1e-5，61-70 epoch lr = 5e-6，71-80 epoch lr = 1e-6
   - **best_max_f = 0.9546**
   - best_epoch:  68，best_batch_idx: 2000
   - 
@@ -83,7 +83,7 @@ An improved version of DASNet, achieving 0.96+ in F1_score.
 - **EXP3——消融实验**
   - 无SAM、无CAM，其他不变
    - **SiamseNet+Decoder，Distance Metric = $L_2$**
-   - 训练 80 epoch，0~20 epoch lr = 1e-4，21~40 epoch lr = 5e-5，41~60 epoch lr = 1e-5，61~70 epoch lr = 5e-6，71~80 epoch lr = 1e-6
+   - 训练 80 epoch，0-20 epoch lr = 1e-4，21-40 epoch lr = 5e-5，41-60 epoch lr = 1e-5，61-70 epoch lr = 5e-6，71-80 epoch lr = 1e-6
    - **best_max_f = 0.9543**
    - best_epoch:  75，best_batch_idx:  2499
 
