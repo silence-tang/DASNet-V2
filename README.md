@@ -1,5 +1,6 @@
 # DASNet-V2
 An improved version of DASNet, achieving 0.96+ in F1_score.
+欢迎大家star、follow，一起学习交流，共同进步。
 
 
 ## 一、前言
