@@ -27,7 +27,15 @@ An improved version of DASNet, achieving 0.96+ in F1_score.
 - 预训练backbone：resnet50-19c8e357.pth
 - Train from scratch：进入DASNet-V2目录，直接在命令行运行`python train.py`（可根据需要自行添加其他命令行参数）
 
-## 五、实验结果
+
+## 五、注意点
+
+- 最佳模型路径在cfg文件夹里，linux/windows需要设置相应的路径。
+- labels必须为0/1二值单通道图，处理完之后要生成新的train1.txt, val1.txt, test1.txt，其中mask的路径为OUT1，然后改cfg。
+- max f_score和AUC基本成正比，因此可以用它衡量模型的性能优劣，也即是可以用max f_score来筛出best model。
+- 原始的输入图像经过了减去均值的中心化操作。
+
+## 六、实验结果
 ### DASNet
 - 基础模型
 - 训练 60 epoch，前 40 epoch lr=1e-4，后 20 epoch lr = 1e-5
@@ -57,7 +65,7 @@ An improved version of DASNet, achieving 0.96+ in F1_score.
 - **best_max_f = 0.9601**
 - best_epoch:  63，best_batch_idx: 2000
 
-## 六、其他实验
+## 七、其他实验
 均在DASNet-Decoder基础上做实验，为了减小单次实验的时长，可以减小epoch数为45（后面再提升也只是0.2左右）
 
 - **空白对照**
@@ -98,7 +106,7 @@ An improved version of DASNet, achieving 0.96+ in F1_score.
 - 无SAM、有CAM，其他不变：可以不做实验，因为发现即使SAM、CAM都去掉，性能也只是下降了0.2左右
 - 有SAM、无CAM，其他不变：可以不做实验，因为发现即使SAM、CAM都去掉，性能也只是下降了0.2左右
 
-### 实验结论
+## 八、实验结论
 - 加上优化设计的decoder结构后，原始的DASNet性能得到了显著提升（F1_score从0.92+提升至0.95+）
 - 将损失函数的计算范式从$L_2$loss改为余弦相似度，DASNet F1_score可达0.96+
 - 通过消融实验发现：原始论文中联合三个feature map的loss计算最终损失其实对结果的提升效果不大，只利用CAM+SAM的融合损失作为总损失也不会下降多少性能（下降0.2左右）
